@@ -1,0 +1,307 @@
+/* ============================================
+   STUDIO SYSTEM — Project / Work Page
+   Match: cabanana.pt canonical layout
+   - Grey outer bg (#F2F2F2)
+   - White centered containers (1152×630)
+   - Split-pane carousel: portrait image LEFT, text RIGHT
+   - Numerical pagination BELOW container
+   ============================================ */
+
+/* Work hero white box */
+.section--work {
+  height: 900px;
+  justify-content: center;
+}
+
+.work__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 144px;
+}
+
+.work__heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 40px 0;
+  letter-spacing: normal;
+  line-height: 33px;
+}
+
+.work__divider {
+  width: 50px;
+  height: 1px;
+  background: var(--color-text);
+  margin: 0 0 40px 0;
+  opacity: 0.3;
+}
+
+.work__text {
+  font-family: var(--font-primary);
+  font-size: var(--text-base, 0.875rem);
+  line-height: var(--leading-normal, 1.43);
+  color: var(--color-text);
+  max-width: 50ch;
+  margin: 0;
+}
+
+/* Project carousel white box */
+.section--project-carousel {
+  height: 900px;
+  justify-content: center;
+  padding-top: 0;
+}
+
+.project__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Carousel */
+.project__carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.project__slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 600ms ease-out;
+}
+
+.project__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Image side — fills left portion, bleeds slightly left */
+.project__image-side {
+  width: 52%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-left: -26px;
+}
+
+.project__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Text side */
+.project__text-side {
+  width: 48%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 48px;
+}
+
+.project__text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  padding: 20px 48px;
+  background: #FFFFFF;
+  line-height: 1.4;
+}
+
+.project__text-content {
+  width: 100%;
+  max-width: 500px;
+  padding-top: 60px;
+}
+
+.project__title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: normal;
+  line-height: 33px;
+}
+
+.project__divider {
+  width: 50px;
+  height: 1px;
+  background: var(--color-text);
+  margin: 15px 0;
+  opacity: 0.3;
+}
+
+.project__description {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 20px;
+  margin: 0 0 32px 0;
+}
+
+/* Thin pill ghost CTA */
+.project__cta {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  color: var(--color-text);
+  border: 1px solid rgba(51, 51, 51, 0.4);
+  padding: 10px 24px;
+  text-decoration: none;
+  transition: border-color var(--duration-fast) ease-out,
+              background var(--duration-fast) ease-out;
+  border-radius: 30px;
+}
+
+.project__cta:hover {
+  border-color: var(--color-text);
+  background: rgba(51, 51, 51, 0.04);
+}
+
+/* Carousel arrows — far right edge of white box */
+.project__arrow {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: opacity var(--duration-fast) ease-out;
+  z-index: 10;
+}
+
+.project__arrow--up {
+  top: 320px;
+  opacity: 0.3;
+}
+
+.project__arrow--down {
+  top: 380px;
+  opacity: 1;
+}
+
+.project__arrow:hover {
+  opacity: 1;
+}
+
+/* Numerical pagination — centered below white box */
+.project__pagination {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.project__dot {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity var(--duration-fast) ease-out;
+  line-height: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+}
+
+.project__dot.is-active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .work__white-box,
+  .project__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    box-shadow: none;
+  }
+  .project__image-side {
+    width: 50%;
+    margin-left: 0;
+  }
+  .project__text-side {
+    width: 50%;
+    padding: 0 32px;
+  }
+  .project__text-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section--work,
+  .section--project-carousel {
+    height: auto;
+    min-height: 600px;
+    padding: 60px 0;
+  }
+  .work__white-box,
+  .project__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    box-shadow: none;
+  }
+  .project__slide {
+    flex-direction: column;
+  }
+  .project__image-side {
+    width: 100%;
+    height: 40%;
+    margin-left: 0;
+  }
+  .project__text-side {
+    width: 100%;
+    height: 60%;
+    padding: 24px;
+  }
+  .project__text-content {
+    padding-top: 0;
+  }
+  .project__text-overlay {
+    display: none;
+  }
+  .project__arrow {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .project__arrow--up { top: calc(50% - 30px); }
+  .project__arrow--down { top: calc(50% + 30px); }
+}

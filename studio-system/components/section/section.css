@@ -1,0 +1,90 @@
+/* ============================================
+   STUDIO SYSTEM — Page Section
+   Match: cabanana.pt canonical layout
+   - Body bg: #F2F2F2 (grey outer shell)
+   - Sections: transparent, 900px tall
+   - White box: 1152×630 centered inside each section
+   - Left sidebar: 144px margin with rotated MENU text
+   - Right sidebar: 144px margin with up/down chevrons
+   ============================================ */
+
+/* Body/page — grey outer shell (cabanana.pt body bg) */
+html, body {
+  background-color: #F2F2F2;
+}
+
+.section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 900px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
+}
+
+/* White container — centered, 1152×630, subtle shadow
+   Centered in 1440 viewport = 144px left/right margins */
+.section__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Site footer */
+.site-footer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 144px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-dark, #1A1A1A);
+  color: var(--color-dark-text, #F4F4F4);
+}
+
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-dark-text, #F4F4F4);
+}
+
+.site-footer__copy {
+  font-family: var(--font-primary);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-dark-text, #F4F4F4);
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .section__white-box {
+    width: 100%;
+    padding: 0 24px;
+    height: auto;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    box-shadow: none;
+  }
+  .site-footer {
+    padding: 24px;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

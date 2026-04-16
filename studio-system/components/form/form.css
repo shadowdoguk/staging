@@ -1,0 +1,93 @@
+/* ============================================
+   STUDIO SYSTEM — Enquiry Form Component
+   ============================================ */
+
+.enquiry-form {
+  max-width: 640px;
+}
+
+.form-field {
+  margin-bottom: var(--space-8);
+}
+
+.form-field:last-of-type {
+  margin-bottom: var(--space-12);
+}
+
+/* Label */
+.form-field__label {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+/* Input / Textarea */
+.form-field__input,
+.form-field__textarea {
+  width: 100%;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+  transition: border-color var(--duration-base) var(--ease-out);
+  outline: none;
+}
+
+.form-field__input:focus,
+.form-field__textarea:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+.form-field__textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: var(--leading-normal);
+}
+
+/* Error state */
+.form-field.has-error .form-field__input,
+.form-field.has-error .form-field__textarea {
+  border-bottom-color: var(--color-error);
+}
+
+.form-field__error {
+  display: none;
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  margin-top: var(--space-2);
+}
+
+.form-field.has-error .form-field__error {
+  display: block;
+}
+
+/* Submit button */
+.form-field--submit {
+  margin-bottom: 0;
+}
+
+/* Success message */
+.form-success {
+  display: none;
+  padding: var(--space-6);
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-accent);
+  margin-bottom: var(--space-8);
+}
+
+.form-success.is-visible {
+  display: block;
+}
+
+.form-success p {
+  font-size: var(--text-base);
+  color: var(--color-text);
+}

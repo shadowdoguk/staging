@@ -1,0 +1,438 @@
+/* ============================================
+   STUDIO SYSTEM — Home Page CSS
+   Match: cabanana.pt canonical layout
+   - Grey outer bg (#F2F2F2)
+   - White container 1152×630, box-shadow
+   - Split-pane carousel: image LEFT, text RIGHT
+   - Numerical pagination below
+   ============================================ */
+
+/* ── HERO ─────────────────────────────────── */
+.section--hero {
+  height: 900px;
+  justify-content: center;
+}
+
+.hero__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── ABOUT ─────────────────────────────────── */
+.section--about {
+  height: 900px;
+  justify-content: center;
+}
+
+.about__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 120px;
+}
+
+.about__heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0 0 40px 0;
+  letter-spacing: normal;
+  line-height: 33px;
+}
+
+.about__divider {
+  width: 1px;
+  height: 40px;
+  background: var(--color-text);
+  margin: 0 0 40px 0;
+}
+
+.about__text {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  text-align: justify;
+  line-height: 20px;
+  max-width: 576px;
+  margin: 0;
+}
+
+/* ── PORTFOLIO CAROUSEL ─────────────────────── */
+.section--portfolio {
+  height: 900px;
+  justify-content: center;
+  padding-top: 0;
+}
+
+.portfolio__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Carousel — positioned absolutely inside white box */
+.portfolio__carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Each slide — split pane: image LEFT 52%, text RIGHT 48% */
+.portfolio__slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 600ms ease-out;
+}
+
+.portfolio__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Image side — fills most of the left, bleeds slightly left of container */
+.portfolio__image-side {
+  width: 52%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  /* Slight left overflow to bleed into grey margin */
+  margin-left: -26px;
+}
+
+.portfolio__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Text side */
+.portfolio__text-side {
+  width: 48%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 48px;
+}
+
+/* Overlay title bar at top of text side (from cabanana forensics) */
+.portfolio__text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  padding: 20px 48px;
+  background: #FFFFFF;
+  line-height: 1.4;
+}
+
+/* Text content — centered in text side */
+.portfolio__text-content {
+  width: 100%;
+  max-width: 500px;
+  padding-top: 60px;
+}
+
+.portfolio__title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 0 0;
+  letter-spacing: normal;
+  line-height: 33px;
+}
+
+.portfolio__divider {
+  width: 50px;
+  height: 1px;
+  background: var(--color-text);
+  margin: 15px 0;
+  opacity: 0.3;
+}
+
+.portfolio__description {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 20px;
+  margin: 0 0 32px 0;
+}
+
+/* Thin grey pill CTA */
+.portfolio__cta {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  color: var(--color-text);
+  border: 1px solid rgba(51, 51, 51, 0.4);
+  padding: 10px 24px;
+  text-decoration: none;
+  transition: border-color var(--duration-fast) ease-out,
+              background var(--duration-fast) ease-out;
+  border-radius: 30px;
+}
+
+.portfolio__cta:hover {
+  border-color: var(--color-text);
+  background: rgba(51, 51, 51, 0.04);
+}
+
+/* Carousel arrows — FAR RIGHT EDGE of white container (in the grey margin)
+   Up arrow: y ≈ 345-385, Down arrow: y ≈ 485-525 */
+.portfolio__arrow {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: opacity var(--duration-fast) ease-out;
+  z-index: 10;
+}
+
+.portfolio__arrow--up {
+  top: 320px;
+  opacity: 0.3;
+}
+
+.portfolio__arrow--down {
+  top: 380px;
+  opacity: 1;
+}
+
+.portfolio__arrow:hover {
+  opacity: 1;
+}
+
+/* Numerical pagination — centered BELOW white container */
+.portfolio__pagination {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.portfolio__dot {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity var(--duration-fast) ease-out;
+  line-height: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+}
+
+.portfolio__dot.is-active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* ── CONTACTS ───────────────────────────────── */
+.section--contacts {
+  height: 900px;
+  justify-content: center;
+}
+
+.contacts__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+.contacts__logo-side {
+  flex-shrink: 0;
+}
+
+.contacts__logo {
+  display: block;
+  width: 200px;
+  height: auto;
+}
+
+.contacts__info-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contacts__address,
+.contacts__email,
+.contacts__phone {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  color: var(--color-text);
+  line-height: 20px;
+}
+
+.contacts__email {
+  text-decoration: none;
+  transition: opacity var(--duration-fast) ease-out;
+}
+
+.contacts__email:hover {
+  opacity: 0.6;
+}
+
+.contacts__phone a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) ease-out;
+}
+
+.contacts__phone a:hover {
+  opacity: 0.6;
+}
+
+.contacts__social {
+  display: flex;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.contacts__social-link svg {
+  display: block;
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero__white-box,
+  .about__white-box,
+  .portfolio__white-box,
+  .contacts__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    box-shadow: none;
+  }
+  .portfolio__image-side {
+    width: 50%;
+    margin-left: 0;
+  }
+  .portfolio__text-side {
+    width: 50%;
+    padding: 0 32px;
+  }
+  .portfolio__text-content {
+    max-width: 100%;
+  }
+  .contacts__white-box {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section--hero,
+  .section--about,
+  .section--portfolio,
+  .section--contacts {
+    height: auto;
+    min-height: 600px;
+    padding: 60px 0;
+  }
+  .hero__white-box,
+  .about__white-box,
+  .portfolio__white-box,
+  .contacts__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    box-shadow: none;
+    margin: 0;
+  }
+  .about__white-box {
+    padding: 48px 24px;
+    align-items: center;
+  }
+  .about__text {
+    text-align: left;
+  }
+  .portfolio__slide {
+    flex-direction: column;
+  }
+  .portfolio__image-side {
+    width: 100%;
+    height: 50%;
+    margin-left: 0;
+  }
+  .portfolio__text-side {
+    width: 100%;
+    height: 50%;
+    padding: 24px;
+  }
+  .portfolio__text-content {
+    padding-top: 0;
+  }
+  .portfolio__text-overlay {
+    display: none;
+  }
+  .portfolio__arrow {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .portfolio__arrow--up { top: calc(50% - 30px); }
+  .portfolio__arrow--down { top: calc(50% + 30px); }
+  .contacts__white-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 48px 24px;
+  }
+  .contacts__address,
+  .contacts__email,
+  .contacts__phone {
+    font-size: 16px;
+  }
+}

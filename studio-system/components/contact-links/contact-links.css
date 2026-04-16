@@ -1,0 +1,38 @@
+/* ============================================
+   STUDIO SYSTEM — Contact Links
+   Match: cabanana.pt .mailto, .link-block style
+   Label + value stacked, clean minimal links
+   ============================================ */
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.contact-links__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.contact-links__label {
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted, #666666);
+}
+
+.contact-links__value {
+  font-family: var(--font-primary);
+  font-size: var(--text-base, 0.875rem);
+  color: var(--color-text);
+  transition: color var(--duration-fast) ease-out;
+}
+
+.contact-links__item:hover .contact-links__value {
+  color: var(--color-text-muted, #666666);
+}

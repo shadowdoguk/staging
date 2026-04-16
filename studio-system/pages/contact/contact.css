@@ -1,0 +1,265 @@
+/* ============================================
+   STUDIO SYSTEM — Contact Page
+   Match: cabanana.pt canonical layout
+   - Grey outer bg (#F2F2F2)
+   - White centered container (1152×630)
+   - Two-column: logo/social LEFT, form RIGHT
+   - Form fields: underline-only (no box borders)
+   ============================================ */
+
+.section--contact {
+  height: 900px;
+  justify-content: center;
+}
+
+.contact__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* ── LEFT COLUMN: Logo + social ─────────────── */
+.contact__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 64px 80px 144px;
+  gap: 48px;
+  flex-shrink: 0;
+}
+
+.contact__logo {
+  display: block;
+}
+
+.contact__social {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.contact__social-link {
+  display: block;
+  opacity: 0.7;
+  transition: opacity var(--duration-fast) ease-out;
+}
+
+.contact__social-link:hover {
+  opacity: 1;
+}
+
+/* ── RIGHT COLUMN: Form ──────────────────────── */
+.contact__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 144px 80px 64px;
+  min-width: 0;
+}
+
+/* ── FORM FIELDS — underline only (no box borders) ── */
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Label — small, above the bottom line */
+.form-field__label {
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 400;
+  color: #888888;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  transition: color var(--duration-fast) ease-out;
+}
+
+/* Input — NO borders except bottom line */
+.form-field__input {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 0 0 8px 0;
+  outline: none;
+  width: 100%;
+  transition: border-color var(--duration-fast) ease-out;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-field__input::placeholder {
+  color: transparent;
+}
+
+.form-field__input:focus {
+  border-bottom-color: var(--color-text);
+  border-bottom-width: 1.5px;
+}
+
+.form-field__input.is-error {
+  border-bottom-color: #CC3333;
+}
+
+/* Select field */
+.form-field__select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-field__select {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 0 24px 8px 0;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color var(--duration-fast) ease-out;
+}
+
+.form-field__select:focus {
+  border-bottom-color: var(--color-text);
+  border-bottom-width: 1.5px;
+}
+
+.form-field__chevron {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Textarea */
+.form-field__textarea {
+  resize: none;
+  line-height: 1.5;
+}
+
+/* Focus label color change */
+.form-field__input:focus + .form-field__label,
+.form-field:focus-within .form-field__label {
+  color: var(--color-text);
+}
+
+/* ── GHOST PILl BUTTON ──────────────────────── */
+.form-field--submit {
+  margin-top: 8px;
+}
+
+.form-submit {
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-text);
+  border-radius: 30px;
+  padding: 12px 40px;
+  cursor: pointer;
+  align-self: flex-start;
+  letter-spacing: 0.05em;
+  transition: background var(--duration-fast) ease-out,
+              color var(--duration-fast) ease-out;
+}
+
+.form-submit:hover {
+  background: rgba(51, 51, 51, 0.06);
+}
+
+.form-submit.is-sent {
+  background: rgba(51, 51, 51, 0.08);
+  border-color: #888888;
+  color: #888888;
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .contact__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    box-shadow: none;
+    flex-direction: column;
+  }
+  .contact__left {
+    padding: 60px 48px 32px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .contact__right {
+    padding: 32px 48px 60px;
+  }
+  .contact__form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section--contact {
+    height: auto;
+    min-height: 700px;
+    padding: 60px 0;
+  }
+  .contact__white-box {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    box-shadow: none;
+  }
+  .contact__left {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 24px 32px;
+    gap: 32px;
+  }
+  .contact__right {
+    padding: 0 24px 48px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .contact__form {
+    gap: 24px;
+  }
+}

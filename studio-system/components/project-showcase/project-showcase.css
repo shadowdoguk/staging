@@ -1,0 +1,93 @@
+/* ============================================
+   STUDIO SYSTEM — Project Showcase Component
+   ============================================ */
+
+.project-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+/* Row layout — 2 items per row */
+.project-showcase__row {
+  display: contents;
+}
+
+/* Individual project card */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.project-card__image-wrap {
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.03);
+}
+
+/* Alternate sizing — first item in pair is larger */
+.project-showcase__row .project-card:first-child {
+  grid-row: span 1;
+}
+
+.project-card__meta {
+  padding: var(--space-4) 0;
+}
+
+.project-card__category {
+  font-family: var(--font-primary);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-1);
+}
+
+.project-card__title {
+  font-family: var(--font-primary);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.project-card__year {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* 4-column grid for larger screens */
+@media (min-width: 1024px) {
+  .project-showcase {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .project-showcase__row .project-card:first-child {
+    grid-row: span 2;
+  }
+
+  .project-showcase__row .project-card:first-child .project-card__image-wrap {
+    aspect-ratio: 3/4;
+    height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-showcase {
+    grid-template-columns: 1fr;
+  }
+}

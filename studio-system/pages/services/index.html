@@ -3,166 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio — Services</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kiona&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Services — Studio</title>
+  <meta name="description" content="Interior design, space planning, and lighting design services.">
   <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../../tokens/fonts.css">
   <link rel="stylesheet" href="../../components/nav-sidebar/nav-sidebar.css">
-  <link rel="stylesheet" href="../../components/content-block/content-block.css">
-  <link rel="stylesheet" href="../../components/menu-overlay/menu-overlay.css">
-  <style>
-    .page-section {
-      height: 900px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #F4F4F4;
-    }
-    .services-block {
-      background: #FFFFFF;
-      width: 1152px;
-      height: 630px;
-      box-shadow: rgba(51, 51, 51, 0.1) 0px 10px 10px -8px;
-      overflow: hidden;
-    }
-    .services-header {
-      padding: 60px 80px 40px;
-      border-bottom: 1px solid #E0E0E0;
-    }
-    .services-header h1 {
-      font-family: 'Kiona', sans-serif;
-      font-size: 24px;
-      font-weight: 400;
-      color: #333333;
-      letter-spacing: 0.05em;
-      margin: 0;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      height: calc(630px - 121px);
-    }
-    .service-item {
-      padding: 48px 48px;
-      border-right: 1px solid #E0E0E0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .service-item:last-child {
-      border-right: none;
-    }
-    .service-item h2 {
-      font-family: 'Kiona', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      color: #333333;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 0 0 20px;
-    }
-    .service-item .accent-bar {
-      width: 40px;
-      height: 1px;
-      background: #333333;
-      margin-bottom: 20px;
-    }
-    .service-item p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      line-height: 1.7;
-      color: #555555;
-      margin: 0;
-    }
-    .footer-strip {
-      height: 60px;
-      background: #F4F4F4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-top: 1px solid #E0E0E0;
-    }
-    .footer-strip p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      color: #888888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-  </style>
+  <link rel="stylesheet" href="../../components/nav-sidebar/menu-overlay.css">
+  <link rel="stylesheet" href="../../components/section/section.css">
+  <link rel="stylesheet" href="services.css">
 </head>
 <body>
 
-  <button class="nav-menu-btn" onclick="toggleMenu()">MENU</button>
-  <div class="nav-arrows">
-    <a href="#top" class="arrow-up" aria-label="Scroll up">
-      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-    <a href="#footer" class="arrow-down" aria-label="Scroll down">
-      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+  <!-- ── Left Sidebar: MENU rotated text ─────── -->
+  <div class="nav-sidebar nav-sidebar--left" id="nav-left">
+    <div class="nav-sidebar__menu-text" id="menu-trigger" role="button" tabindex="0">MENU</div>
   </div>
 
-  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true">
-    <button class="overlay-close" onclick="toggleMenu()">Close</button>
-    <div class="overlay-inner">
-      <nav>
-        <a href="../home/" onclick="toggleMenu()">Home</a>
-        <a href="../about/" onclick="toggleMenu()">About</a>
-        <a href="../services/" onclick="toggleMenu()">Services</a>
-        <a href="../project/" onclick="toggleMenu()">Work</a>
-        <a href="../contact/" onclick="toggleMenu()">Contact</a>
-      </nav>
+  <!-- ── Right Sidebar: Up/down chevrons ────── -->
+  <div class="nav-sidebar nav-sidebar--right" id="nav-right">
+    <button class="nav-arrow nav-arrow--up" id="scroll-up" aria-label="Previous">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M20 12L20 28M12 20L20 12L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="nav-sidebar__divider"></div>
+    <button class="nav-arrow nav-arrow--down" id="scroll-down" aria-label="Next">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M20 28L20 12M12 20L20 28L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── Menu Overlay ──────────────── -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+    <button class="menu-overlay__close" id="menu-close" aria-label="Close menu">
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <path d="M10 10L40 40M40 10L10 40" stroke="#F4F4F4" stroke-width="1.5"/>
+      </svg>
+    </button>
+    <nav class="menu-overlay__nav">
+      <a href="/pages/about/" class="menu-overlay__link">SOBRE NÓS</a>
+      <a href="/pages/project/" class="menu-overlay__link">PROJETOS</a>
+      <a href="/pages/services/" class="menu-overlay__link">UPCYCLING</a>
+      <a href="/pages/contact/" class="menu-overlay__link">CONTACTO</a>
+    </nav>
+    <div class="menu-overlay__social">
+      <a href="mailto:atelier@studio.com" class="menu-overlay__social-link">
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="15" y="15" width="40" height="40" stroke="#F4F4F4" stroke-width="1.5" fill="none"/></svg>
+      </a>
+      <a href="#" class="menu-overlay__social-link">
+        <svg width="75" height="75" viewBox="0 0 75 75" fill="none"><rect x="15" y="15" width="45" height="45" stroke="#F4F4F4" stroke-width="1.5" fill="none"/></svg>
+      </a>
+      <a href="#" class="menu-overlay__social-link">
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="15" y="15" width="40" height="40" stroke="#F4F4F4" stroke-width="1.5" fill="none"/></svg>
+      </a>
     </div>
   </div>
 
-  <section class="page-section" id="top">
-    <div class="services-block">
-      <div class="services-header">
-        <h1>Our Services</h1>
-      </div>
-      <div class="services-grid">
-        <div class="service-item">
-          <h2>Design</h2>
-          <div class="accent-bar"></div>
-          <p>
-            Complete interior design from concept to completion. We develop spatial plans, material palettes, custom furniture specifications, and full detailed drawings for every project.
-          </p>
+  <!-- ── Services Hero (split-pane: image left, text right) -->
+  <section class="section section--services" id="Services">
+    <div class="section__white-box services__white-box">
+      <div class="services__split">
+        <div class="services__image-side">
+          <img
+            class="services__image"
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=80"
+            alt="Interior design service"
+          >
         </div>
-        <div class="service-item">
-          <h2>Consultation</h2>
-          <div class="accent-bar"></div>
-          <p>
-            Advisory sessions for clients who want expert input at specific project stages. Ideal for those already in progress or seeking a second opinion on direction.
-          </p>
-        </div>
-        <div class="service-item">
-          <h2>Project Management</h2>
-          <div class="accent-bar"></div>
-          <p>
-            End-to-end coordination of contractors, artisans, and suppliers. We manage timelines, budgets, and quality control so you can focus on the excitement of watching your space take shape.
+        <div class="services__text-side">
+          <h1 class="services__heading">What<br>We Do</h1>
+          <p class="services__intro">
+            We offer a considered range of design services — from full interior
+            commissions to targeted consultancy. Every engagement is tailored.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="footer-strip" id="footer">
-    <p>Studio — Lisbon & Porto — atelier@studio.pt — +351 218 080 529</p>
-  </div>
+  <!-- ── Service 1: Interior Design ── -->
+  <section class="section section--service" id="Service1">
+    <div class="section__white-box service__white-box">
+      <div class="service__split">
+        <div class="service__image-side">
+          <img
+            class="service__image"
+            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80"
+            alt="Interior design"
+          >
+        </div>
+        <div class="service__text-side">
+          <span class="service__number">01</span>
+          <h2 class="service__title">Interior Design</h2>
+          <div class="service__divider"></div>
+          <p class="service__desc">
+            Full-spectrum interior design from initial concept through to construction
+            oversight and final styling.
+          </p>
+          <ul class="service__list">
+            <li>Concept development and mood boarding</li>
+            <li>Space planning and furniture layouts</li>
+            <li>Material and finish selection</li>
+            <li>Bespoke furniture and joinery design</li>
+            <li>Construction oversight</li>
+            <li>Art and accessory sourcing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    function toggleMenu() {
-      const overlay = document.getElementById('menuOverlay');
-      overlay.classList.toggle('is-open');
-      document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
-    }
+  <!-- ── Service 2: Space Planning ── -->
+  <section class="section section--service" id="Service2">
+    <div class="section__white-box service__white-box">
+      <div class="service__split">
+        <div class="service__image-side">
+          <img
+            class="service__image"
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80"
+            alt="Space planning"
+          >
+        </div>
+        <div class="service__text-side">
+          <span class="service__number">02</span>
+          <h2 class="service__title">Space Planning</h2>
+          <div class="service__divider"></div>
+          <p class="service__desc">
+            Before aesthetics comes logic. We map how you live, work, and move
+            through a space — then design layouts that support those patterns.
+          </p>
+          <ul class="service__list">
+            <li>Functional analysis and brief development</li>
+            <li>Circulation and flow mapping</li>
+            <li>Zoning and programme planning</li>
+            <li>Furniture specification</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Service 3: Lighting ── -->
+  <section class="section section--service" id="Service3">
+    <div class="section__white-box service__white-box">
+      <div class="service__split">
+        <div class="service__image-side">
+          <img
+            class="service__image"
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80"
+            alt="Lighting design"
+          >
+        </div>
+        <div class="service__text-side">
+          <span class="service__number">03</span>
+          <h2 class="service__title">Lighting Design</h2>
+          <div class="service__divider"></div>
+          <p class="service__desc">
+            Light shapes how we experience architecture. We design layered lighting
+            schemes that reveal a space at its best throughout the day.
+          </p>
+          <ul class="service__list">
+            <li>Lighting strategy and zonal planning</li>
+            <li>Fixture specification</li>
+            <li>Control and automation design</li>
+            <li>Natural light analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p class="site-footer__brand">Studio</p>
+    <p class="site-footer__copy">© 2025 Studio. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import NavSidebar from '../../components/nav-sidebar/nav-sidebar.js';
+    const sidebar = new NavSidebar();
   </script>
-
 </body>
 </html>

@@ -1,0 +1,72 @@
+/* ============================================
+   STUDIO SYSTEM — Text Block Component
+   ============================================ */
+
+.text-block {
+  max-width: var(--text-width);
+}
+
+.text-block p {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+.text-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Large intro text */
+.text-block--large p {
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+}
+
+/* Quote / blockquote */
+.text-block blockquote {
+  font-family: var(--font-primary);
+  font-size: var(--text-xl);
+  font-style: italic;
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+  padding-left: var(--space-6);
+  border-left: 2px solid var(--color-accent);
+  margin: var(--space-8) 0;
+}
+
+/* Lists */
+.text-block ul,
+.text-block ol {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-6);
+}
+
+.text-block ul {
+  list-style: none;
+}
+
+.text-block ul li {
+  position: relative;
+  padding-left: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.text-block ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 1px;
+}
+
+.text-block ol {
+  list-style: decimal;
+}
+
+.text-block ol li {
+  margin-bottom: var(--space-2);
+}

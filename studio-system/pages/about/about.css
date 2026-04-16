@@ -1,0 +1,183 @@
+/* ============================================
+   STUDIO SYSTEM — About Page
+   Match: cabanana.pt canonical layout
+   - Grey outer bg (#F2F2F2)
+   - White centered containers (1152×630)
+   ============================================ */
+
+/* About white box — centered text */
+.section--about {
+  height: 900px;
+  justify-content: center;
+}
+
+.about__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 120px;
+}
+
+.about__heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0 0 40px 0;
+  letter-spacing: normal;
+  line-height: 33px;
+}
+
+.about__divider {
+  width: 1px;
+  height: 40px;
+  background: var(--color-text);
+  margin: 0 0 40px 0;
+}
+
+.about__text {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text);
+  text-align: justify;
+  line-height: 20px;
+  max-width: 576px;
+  margin: 0;
+}
+
+/* Values white box */
+.section--values {
+  height: 900px;
+  justify-content: center;
+}
+
+.values__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  padding: 80px 144px;
+  display: flex;
+  align-items: center;
+}
+
+.values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  width: 100%;
+}
+
+.values__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.values__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.values__desc {
+  font-family: var(--font-primary);
+  font-size: var(--text-base, 0.875rem);
+  line-height: var(--leading-normal, 1.43);
+  color: var(--color-text-muted, #666666);
+}
+
+/* Studio white box */
+.section--studio {
+  height: 900px;
+  justify-content: center;
+}
+
+.studio__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 144px;
+}
+
+.studio__heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 360px 40px 0;
+  letter-spacing: normal;
+  line-height: 33px;
+}
+
+.studio__divider {
+  width: 50px;
+  height: 1px;
+  background: var(--color-text);
+  margin: 0 0 40px 0;
+  opacity: 0.3;
+}
+
+.studio__text {
+  font-family: var(--font-primary);
+  font-size: var(--text-base, 0.875rem);
+  line-height: var(--leading-normal, 1.43);
+  color: var(--color-text);
+  max-width: 50ch;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .about__white-box,
+  .values__white-box,
+  .studio__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    box-shadow: none;
+  }
+  .values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section--about,
+  .section--values,
+  .section--studio {
+    height: auto;
+    min-height: 600px;
+    padding: 60px 0;
+  }
+  .about__white-box,
+  .values__white-box,
+  .studio__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    padding: 48px 24px;
+    box-shadow: none;
+  }
+  .about__heading,
+  .studio__heading {
+    margin-right: 0;
+  }
+  .values__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,47 @@
+/* ============================================
+   STUDIO SYSTEM — Section Header Component
+   ============================================ */
+
+.section-header {
+  margin-bottom: var(--space-12);
+}
+
+.section-header--center {
+  text-align: center;
+}
+
+.section-header--center .section-header__intro {
+  margin: var(--space-4) auto 0;
+}
+
+/* Eyebrow */
+.section-header__eyebrow {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+/* Heading */
+.section-header__heading {
+  font-family: var(--font-primary);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+}
+
+/* Intro paragraph */
+.section-header__intro {
+  font-family: var(--font-primary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-loose);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  margin-top: var(--space-4);
+}

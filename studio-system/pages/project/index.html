@@ -3,265 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio — Work</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kiona&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Work — Studio</title>
+  <meta name="description" content="Selected projects — residential, commercial, and interior design.">
   <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../../tokens/fonts.css">
   <link rel="stylesheet" href="../../components/nav-sidebar/nav-sidebar.css">
-  <link rel="stylesheet" href="../../components/content-block/content-block.css">
-  <link rel="stylesheet" href="../../components/project-slider/project-slider.css">
-  <link rel="stylesheet" href="../../components/menu-overlay/menu-overlay.css">
-  <style>
-    .page-section {
-      height: 900px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #F4F4F4;
-    }
-    .work-block {
-      background: #FFFFFF;
-      width: 1152px;
-      height: 630px;
-      box-shadow: rgba(51, 51, 51, 0.1) 0px 10px 10px -8px;
-      overflow: hidden;
-    }
-    .work-header {
-      padding: 48px 60px 32px;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      border-bottom: 1px solid #E0E0E0;
-    }
-    .work-header h1 {
-      font-family: 'Kiona', sans-serif;
-      font-size: 24px;
-      font-weight: 400;
-      color: #333333;
-      letter-spacing: 0.05em;
-      margin: 0;
-    }
-    .work-header span {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      color: #888888;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .work-slider {
-      position: relative;
-      width: 100%;
-      height: calc(630px - 97px);
-      overflow: hidden;
-    }
-    .work-slider .slider-mask {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      height: 100%;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .work-slider .slider-mask::-webkit-scrollbar { display: none; }
-    .work-slider .slide {
-      flex: 0 0 100%;
-      scroll-snap-align: start;
-      position: relative;
-      overflow: hidden;
-    }
-    .work-slider .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .work-slider .slide-caption {
-      position: absolute;
-      bottom: 40px;
-      left: 60px;
-      color: #FFFFFF;
-    }
-    .work-slider .slide-caption h2 {
-      font-family: 'Kiona', sans-serif;
-      font-size: 28px;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      margin: 0 0 8px;
-    }
-    .work-slider .slide-caption p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      opacity: 0.8;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.9);
-      border: none;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      color: #333333;
-    }
-    .work-slider:hover .slider-arrow { opacity: 1; }
-    .slider-arrow-prev { left: 16px; }
-    .slider-arrow-next { right: 16px; }
-    .slider-arrow:disabled { opacity: 0.2 !important; cursor: default; }
-    .footer-strip {
-      height: 60px;
-      background: #F4F4F4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-top: 1px solid #E0E0E0;
-    }
-    .footer-strip p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      color: #888888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-  </style>
+  <link rel="stylesheet" href="../../components/nav-sidebar/menu-overlay.css">
+  <link rel="stylesheet" href="../../components/section/section.css">
+  <link rel="stylesheet" href="project.css">
 </head>
 <body>
 
-  <button class="nav-menu-btn" onclick="toggleMenu()">MENU</button>
-  <div class="nav-arrows">
-    <a href="#top" class="arrow-up" aria-label="Scroll up">
-      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-    <a href="#footer" class="arrow-down" aria-label="Scroll down">
-      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+  <!-- ── Left Sidebar: MENU rotated text ─────── -->
+  <div class="nav-sidebar nav-sidebar--left" id="nav-left">
+    <div class="nav-sidebar__menu-text" id="menu-trigger" role="button" tabindex="0">MENU</div>
   </div>
 
-  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true">
-    <button class="overlay-close" onclick="toggleMenu()">Close</button>
-    <div class="overlay-inner">
-      <nav>
-        <a href="../home/" onclick="toggleMenu()">Home</a>
-        <a href="../about/" onclick="toggleMenu()">About</a>
-        <a href="../services/" onclick="toggleMenu()">Services</a>
-        <a href="../project/" onclick="toggleMenu()">Work</a>
-        <a href="../contact/" onclick="toggleMenu()">Contact</a>
-      </nav>
+  <!-- ── Right Sidebar: Up/down chevrons ────── -->
+  <div class="nav-sidebar nav-sidebar--right" id="nav-right">
+    <button class="nav-arrow nav-arrow--up" id="scroll-up" aria-label="Previous">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M20 12L20 28M12 20L20 12L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="nav-sidebar__divider"></div>
+    <button class="nav-arrow nav-arrow--down" id="scroll-down" aria-label="Next">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M20 28L20 12M12 20L20 28L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── Menu Overlay ──────────────── -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+    <button class="menu-overlay__close" id="menu-close" aria-label="Close menu">
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <path d="M10 10L40 40M40 10L10 40" stroke="#F4F4F4" stroke-width="1.5"/>
+      </svg>
+    </button>
+    <nav class="menu-overlay__nav">
+      <a href="/pages/about/" class="menu-overlay__link">SOBRE NÓS</a>
+      <a href="/pages/project/" class="menu-overlay__link">PROJETOS</a>
+      <a href="/pages/services/" class="menu-overlay__link">UPCYCLING</a>
+      <a href="/pages/contact/" class="menu-overlay__link">CONTACTO</a>
+    </nav>
+    <div class="menu-overlay__social">
+      <a href="mailto:atelier@studio.com" class="menu-overlay__social-link">
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="15" y="15" width="40" height="40" stroke="#F4F4F4" stroke-width="1.5" fill="none"/></svg>
+      </a>
+      <a href="#" class="menu-overlay__social-link">
+        <svg width="75" height="75" viewBox="0 0 75 75" fill="none"><rect x="15" y="15" width="45" height="45" stroke="#F4F4F4" stroke-width="1.5" fill="none"/></svg>
+      </a>
+      <a href="#" class="menu-overlay__social-link">
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="15" y="15" width="40" height="40" stroke="#F4F4F4" stroke-width="1.5" fill="none"/></svg>
+      </a>
     </div>
   </div>
 
-  <section class="page-section" id="top">
-    <div class="work-block">
-      <div class="work-header">
-        <h1>Selected Work</h1>
-        <span>2020 — 2024</span>
-      </div>
-      <div class="work-slider">
-        <div class="slider-mask" id="workMask">
-
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1400&q=80" alt="Lisbon Apartment">
-            <div class="slide-caption">
-              <h2>Lisbon Apartment</h2>
-              <p>Interior Design — 2024</p>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1400&q=80" alt="Porto House">
-            <div class="slide-caption">
-              <h2>Porto House</h2>
-              <p>Full Home — 2024</p>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80" alt="Comporta Retreat">
-            <div class="slide-caption">
-              <h2>Comporta Retreat</h2>
-              <p>Country House — 2023</p>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=80" alt="Alfama Loft">
-            <div class="slide-caption">
-              <h2>Alfama Loft</h2>
-              <p>Loft Conversion — 2023</p>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=80" alt="Mérida House">
-            <div class="slide-caption">
-              <h2>Mérida House</h2>
-              <p>Renovation — 2022</p>
-            </div>
-          </div>
-
-        </div>
-        <button class="slider-arrow slider-arrow-prev" id="workPrev" aria-label="Previous">
-          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="slider-arrow slider-arrow-next" id="workNext" aria-label="Next">
-          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
+  <!-- ── Work Page Hero ─── Text-only centered white box -->
+  <section class="section section--work" id="Work">
+    <div class="section__white-box work__white-box">
+      <h1 class="work__heading">Selected Work</h1>
+      <div class="work__divider"></div>
+      <p class="work__text">
+        A selection of projects from 2020 to the present.
+        Residential, commercial, and interior design commissions.
+      </p>
     </div>
   </section>
 
-  <div class="footer-strip" id="footer">
-    <p>Studio — Lisbon & Porto — atelier@studio.pt — +351 218 080 529</p>
-  </div>
+  <!-- ── Project Carousel ─── Split-pane single-project carousel -->
+  <section class="section section--project-carousel" id="Projects">
+    <div class="section__white-box project__white-box">
+      <div class="project__carousel" id="project-carousel">
 
-  <script>
-    function toggleMenu() {
-      const overlay = document.getElementById('menuOverlay');
-      overlay.classList.toggle('is-open');
-      document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
+        <div class="project__slide is-active" data-index="0">
+          <div class="project__image-side">
+            <img class="project__image" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80" alt="Lakeside Residence">
+          </div>
+          <div class="project__text-side">
+            <div class="project__text-overlay">Lakeside Residence</div>
+            <div class="project__text-content">
+              <h2 class="project__title">Lakeside Residence</h2>
+              <div class="project__divider"></div>
+              <p class="project__description">
+                Um projeto de interiores para uma família com 4 crianças, tivemos como foco
+                principal criar um espaço prático e descontraído.
+              </p>
+              <a href="#" class="project__cta">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__slide" data-index="1">
+          <div class="project__image-side">
+            <img class="project__image" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80" alt="Urban Apartment">
+          </div>
+          <div class="project__text-side">
+            <div class="project__text-overlay">Urban Apartment</div>
+            <div class="project__text-content">
+              <h2 class="project__title">Urban Apartment</h2>
+              <div class="project__divider"></div>
+              <p class="project__description">
+                Um apartamento no centro da cidade com um layout aberto e luminoso.
+                Cada espaço foi pensado para maximizar a luz natural.
+              </p>
+              <a href="#" class="project__cta">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__slide" data-index="2">
+          <div class="project__image-side">
+            <img class="project__image" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80" alt="The Cedar House">
+          </div>
+          <div class="project__text-side">
+            <div class="project__text-overlay">The Cedar House</div>
+            <div class="project__text-content">
+              <h2 class="project__title">The Cedar House</h2>
+              <div class="project__divider"></div>
+              <p class="project__description">
+                Uma moradia contemporânea onde a arquitectura e o interior se fundem.
+                Materiais naturais e linhas limpas definem este espaço sereno.
+              </p>
+              <a href="#" class="project__cta">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__slide" data-index="3">
+          <div class="project__image-side">
+            <img class="project__image" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80" alt="Vale Cottage">
+          </div>
+          <div class="project__text-side">
+            <div class="project__text-overlay">Vale Cottage</div>
+            <div class="project__text-content">
+              <h2 class="project__title">Vale Cottage</h2>
+              <div class="project__divider"></div>
+              <p class="project__description">
+                Um refúgio no campo com interiores acolhedores e funcionais.
+                Tratamos cada detalhe com o mesmo cuidado que daríamos à nossa própria casa.
+              </p>
+              <a href="#" class="project__cta">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__slide" data-index="4">
+          <div class="project__image-side">
+            <img class="project__image" src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=80" alt="Clerkenwell Studio">
+          </div>
+          <div class="project__text-side">
+            <div class="project__text-overlay">Clerkenwell Studio</div>
+            <div class="project__text-content">
+              <h2 class="project__title">Clerkenwell Studio</h2>
+              <div class="project__divider"></div>
+              <p class="project__description">
+                Um espaço de trabalho criativo em plena cidade. Mobiliário à medida
+                e iluminação cuidada transformam um apartamento pequeno num estúdio inspirador.
+              </p>
+              <a href="#" class="project__cta">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__slide" data-index="5">
+          <div class="project__image-side">
+            <img class="project__image" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900&q=80" alt="The Glass Villa">
+          </div>
+          <div class="project__text-side">
+            <div class="project__text-overlay">The Glass Villa</div>
+            <div class="project__text-content">
+              <h2 class="project__title">The Glass Villa</h2>
+              <div class="project__divider"></div>
+              <p class="project__description">
+                Uma villa moderna onde a transparência é a protagonista. Vastas superfícies
+                vidradas ligam interior e exterior num diálogo constante com a paisagem.
+              </p>
+              <a href="#" class="project__cta">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Arrows on far right edge of white box -->
+      <button class="project__arrow project__arrow--up" id="project-up" aria-label="Previous project">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M20 12L20 28M12 20L20 12L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="project__arrow project__arrow--down" id="project-down" aria-label="Next project">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M20 28L20 12M12 20L20 28L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Numerical pagination BELOW white container -->
+    <div class="project__pagination" id="project-pagination">
+      <span class="project__dot is-active" data-index="0">1</span>
+      <span class="project__dot" data-index="1">2</span>
+      <span class="project__dot" data-index="2">3</span>
+      <span class="project__dot" data-index="3">4</span>
+      <span class="project__dot" data-index="4">5</span>
+      <span class="project__dot" data-index="5">6</span>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p class="site-footer__brand">Studio</p>
+    <p class="site-footer__copy">© 2025 Studio. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import NavSidebar from '../../components/nav-sidebar/nav-sidebar.js';
+    const sidebar = new NavSidebar();
+
+    // Project carousel
+    const slides = document.querySelectorAll('.project__slide');
+    const dots = document.querySelectorAll('.project__dot');
+    const arrowUp = document.getElementById('project-up');
+    const arrowDown = document.getElementById('project-down');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      slides[currentSlide].classList.remove('is-active');
+      dots[currentSlide].classList.remove('is-active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('is-active');
+      dots[currentSlide].classList.add('is-active');
+      if (arrowUp) arrowUp.style.opacity = currentSlide === 0 ? '0.3' : '1';
+      if (arrowDown) arrowDown.style.opacity = currentSlide === totalSlides - 1 ? '0.3' : '1';
     }
-    (function() {
-      const mask = document.getElementById('workMask');
-      const prevBtn = document.getElementById('workPrev');
-      const nextBtn = document.getElementById('workNext');
-      if (!mask) return;
-      const slides = mask.querySelectorAll('.slide');
-      let current = 0;
-      function goTo(idx) {
-        current = Math.max(0, Math.min(idx, slides.length - 1));
-        mask.scrollTo({ left: current * mask.clientWidth, behavior: 'smooth' });
-        prevBtn.disabled = current === 0;
-        nextBtn.disabled = current === slides.length - 1;
-      }
-      prevBtn.addEventListener('click', () => goTo(current - 1));
-      nextBtn.addEventListener('click', () => goTo(current + 1));
-      mask.addEventListener('scroll', () => {
-        const idx = Math.round(mask.scrollLeft / mask.clientWidth);
-        current = idx;
-        prevBtn.disabled = current === 0;
-        nextBtn.disabled = current === slides.length - 1;
-      });
-      goTo(0);
-    })();
-  </script>
 
+    arrowUp?.addEventListener('click', () => goToSlide(currentSlide - 1));
+    arrowDown?.addEventListener('click', () => goToSlide(currentSlide + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+    if (arrowUp) arrowUp.style.opacity = '0.3';
+  </script>
 </body>
 </html>

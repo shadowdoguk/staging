@@ -1,65 +1,113 @@
 /* ============================================
-   MENU-OVERLAY — Full-screen nav overlay
-   Reference: cabanana.pt menu popup
-   Semi-transparent dark overlay with nav links
+   STUDIO SYSTEM — Menu Overlay Component
    ============================================ */
 
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(51, 51, 51, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   z-index: 200;
+  background: var(--color-overlay);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  visibility: hidden;
+  transition: opacity var(--duration-base) var(--ease-out),
+              visibility var(--duration-base);
 }
 
 .menu-overlay.is-open {
   opacity: 1;
-  pointer-events: all;
+  visibility: visible;
 }
 
-.menu-overlay .overlay-inner {
+/* Close button */
+.menu-overlay__close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-dark-text);
+  transition: color var(--duration-fast);
+}
+.menu-overlay__close:hover {
+  color: var(--color-accent);
+}
+
+.menu-overlay__close svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Nav links */
+.menu-overlay__nav {
   text-align: center;
 }
 
-.menu-overlay nav a {
-  display: block;
-  font-family: 'Kiona', sans-serif;
-  font-size: 48px;
+.menu-overlay__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.menu-overlay__link {
+  font-family: var(--font-primary);
+  font-size: var(--text-3xl);
   font-weight: 400;
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 16px 0;
-  letter-spacing: 0.05em;
-  transition: opacity 0.2s ease;
+  color: var(--color-dark-text);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: color var(--duration-fast),
+              opacity var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+  display: inline-block;
+}
+
+.menu-overlay.is-open .menu-overlay__link {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.menu-overlay nav a:hover {
-  opacity: 0.6;
+.menu-overlay.is-open .menu-overlay__list li:nth-child(1) .menu-overlay__link { transition-delay: 60ms; }
+.menu-overlay.is-open .menu-overlay__list li:nth-child(2) .menu-overlay__link { transition-delay: 120ms; }
+.menu-overlay.is-open .menu-overlay__list li:nth-child(3) .menu-overlay__link { transition-delay: 180ms; }
+.menu-overlay.is-open .menu-overlay__list li:nth-child(4) .menu-overlay__link { transition-delay: 240ms; }
+.menu-overlay.is-open .menu-overlay__list li:nth-child(5) .menu-overlay__link { transition-delay: 300ms; }
+
+.menu-overlay__link:hover,
+.menu-overlay__link.is-active {
+  color: var(--color-accent);
 }
 
-.menu-overlay .overlay-close {
+/* Bottom contact */
+.menu-overlay__footer {
   position: absolute;
-  top: 40px;
-  right: 40px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #FFFFFF;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+  bottom: var(--space-12);
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out) 400ms;
 }
 
-.menu-overlay .overlay-close:hover {
+.menu-overlay.is-open .menu-overlay__footer {
   opacity: 1;
+}
+
+.menu-overlay__footer p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+.menu-overlay__footer a {
+  color: var(--color-accent);
 }

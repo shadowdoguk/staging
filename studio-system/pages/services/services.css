@@ -1,0 +1,195 @@
+/* ============================================
+   STUDIO SYSTEM — Services Page
+   Match: cabanana.pt canonical layout
+   - Grey outer bg (#F2F2F2)
+   - White centered containers (1152×630)
+   - Split-pane: image LEFT, text RIGHT
+   ============================================ */
+
+.section {
+  background: transparent;
+}
+
+/* Services hero — split-pane white box */
+.section--services,
+.section--service {
+  height: 900px;
+  justify-content: center;
+}
+
+.services__white-box,
+.service__white-box {
+  width: 1152px;
+  height: 630px;
+  max-width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Split pane layout */
+.services__split,
+.service__split {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.services__image-side,
+.service__image-side {
+  width: 52%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.services__image,
+.service__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.services__text-side,
+.service__text-side {
+  width: 48%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 64px;
+}
+
+.services__heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 24px 0;
+  letter-spacing: normal;
+  line-height: 1.2;
+}
+
+.services__intro {
+  font-family: var(--font-primary);
+  font-size: var(--text-base, 0.875rem);
+  color: var(--color-text);
+  line-height: var(--leading-normal, 1.43);
+  max-width: 40ch;
+}
+
+.service__number {
+  font-family: var(--font-primary);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-text-muted, #666666);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.service__title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 0 0;
+  letter-spacing: normal;
+  line-height: 1.2;
+}
+
+.service__divider {
+  width: 50px;
+  height: 1px;
+  background: var(--color-text);
+  margin: 20px 0;
+  opacity: 0.3;
+}
+
+.service__desc {
+  font-family: var(--font-primary);
+  font-size: var(--text-base, 0.875rem);
+  color: var(--color-text);
+  line-height: var(--leading-normal, 1.43);
+  max-width: 40ch;
+  margin: 0 0 24px 0;
+}
+
+.service__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service__list li {
+  font-family: var(--font-primary);
+  font-size: var(--text-base, 0.875rem);
+  line-height: var(--leading-normal, 1.43);
+  color: var(--color-text);
+  padding-left: 16px;
+  position: relative;
+}
+
+.service__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  background: var(--color-text);
+  opacity: 0.4;
+}
+
+@media (max-width: 1024px) {
+  .services__white-box,
+  .service__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    box-shadow: none;
+  }
+  .services__image-side,
+  .service__image-side {
+    width: 50%;
+  }
+  .services__text-side,
+  .service__text-side {
+    width: 50%;
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section--services,
+  .section--service {
+    height: auto;
+    min-height: 600px;
+    padding: 60px 0;
+  }
+  .services__split,
+  .service__split {
+    flex-direction: column;
+  }
+  .services__image-side,
+  .service__image-side {
+    width: 100%;
+    height: 40%;
+  }
+  .services__text-side,
+  .service__text-side {
+    width: 100%;
+    height: 60%;
+    padding: 32px 24px;
+    justify-content: flex-start;
+  }
+  .services__white-box,
+  .service__white-box {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    box-shadow: none;
+  }
+}

@@ -1,96 +1,115 @@
 /* ============================================
-   NAV-SIDEBAR — Fixed right-side navigation
-   MENU text (vertical) + up/down scroll arrows
-   Reference: cabanana.pt live CSS
+   STUDIO SYSTEM — Nav Sidebar
+   Match: cabanana.pt .menu-selector + .nav-selectors
+   Left: fixed MENU text (Kiona, matrix rotate -90°)
+   Right: fixed scroll arrows (up/down, chevron style)
    ============================================ */
 
-/* ── MENU text ─────────────────────────── */
 .nav-sidebar {
   position: fixed;
   top: 0;
-  right: 0;
+  height: 900px;
   width: 144px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   z-index: 100;
   pointer-events: none;
 }
 
-.nav-menu-btn {
-  position: fixed;
-  top: 435px;
-  left: 37px;
-  font-family: 'Kiona', sans-serif;
+.nav-sidebar--left {
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* MENU text — Kiona, matrix(0,-1,1,0,0,0) = rotate -90° CCW
+   Positioned at left:37px, top:435px (from cabanana forensics) */
+.nav-sidebar__menu-text {
+  font-family: var(--font-display);
   font-size: 25px;
   font-weight: 400;
-  color: #333333;
+  color: var(--color-text);
+  transform: matrix(0, -1, 1, 0, 0, 0);
+  pointer-events: auto;
   cursor: pointer;
-  pointer-events: all;
-  writing-mode: horizontal-tb;
-  opacity: 1;
-  transition: opacity 0.2s ease;
-  /* Rotate to read vertically — mimics reference transform */
-  transform: rotate(-90deg) translateX(-50%);
-  transform-origin: left top;
-  letter-spacing: 0.05em;
+  white-space: nowrap;
+  position: absolute;
+  left: 37px;
+  top: 435px;
 }
 
-.nav-menu-btn:hover {
-  opacity: 0.6;
-}
-
-/* ── Scroll arrows ─────────────────────── */
-.nav-arrows {
+.nav-sidebar--left {
   position: fixed;
+  left: 0;
   top: 0;
-  right: 0;
   width: 144px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  z-index: 99;
+  height: 900px;
+  background: transparent;
+  z-index: 100;
   pointer-events: none;
 }
 
-.nav-arrows a {
-  display: block;
+.nav-sidebar--left .nav-sidebar__menu-text {
+  pointer-events: auto;
+}
+
+/* Right sidebar — fixed right edge */
+.nav-sidebar--right {
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  padding: 120px 0;
+}
+
+/* Up arrow — opacity 0.3 (cabanana: up=0.3, down=1.0) */
+.nav-arrow {
   width: 40px;
   height: 40px;
-  text-align: center;
-  line-height: 40px;
-  color: #333333;
-  text-decoration: none;
-  pointer-events: all;
-  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity var(--duration-fast) ease-out;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.nav-arrow--up {
   opacity: 0.3;
 }
 
-.nav-arrows a:hover {
+.nav-arrow--down {
   opacity: 1;
 }
 
-.nav-arrows .arrow-up {
-  margin-bottom: 100px;
+.nav-arrow:hover {
+  opacity: 1;
 }
 
-.nav-arrows .arrow-down {
-  transform: rotate(90deg);
+/* Scroll arrows — chevron SVG, thin stroke style matching cabanana */
+.nav-arrow svg {
+  width: 40px;
+  height: 40px;
 }
 
-.nav-arrows .arrow-down:hover {
-  transform: rotate(90deg);
+/* Arrows NOT a button — just clickable elements */
+#scroll-up, #scroll-down {
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-/* Arrow SVG icons */
-.nav-arrows a svg {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
+@media (max-width: 768px) {
+  .nav-sidebar {
+    width: 80px;
+  }
+  .nav-sidebar__menu-text {
+    font-size: 18px;
+    left: 24px;
+  }
 }
