@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio — About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kiona&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../../components/nav-sidebar/nav-sidebar.css">
+  <link rel="stylesheet" href="../../components/content-block/content-block.css">
+  <link rel="stylesheet" href="../../components/menu-overlay/menu-overlay.css">
+  <style>
+    .page-section {
+      height: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F4F4F4;
+    }
+    .about-block {
+      background: #FFFFFF;
+      width: 1152px;
+      height: 630px;
+      box-shadow: rgba(51, 51, 51, 0.1) 0px 10px 10px -8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+    }
+    .about-text h1 {
+      font-family: 'Kiona', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #333333;
+      margin: 0 0 32px;
+      letter-spacing: 0.05em;
+    }
+    .about-text .accent-line {
+      width: 60px;
+      height: 1px;
+      background: #333333;
+      margin-bottom: 32px;
+    }
+    .about-text p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    .footer-strip {
+      height: 60px;
+      background: #F4F4F4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid #E0E0E0;
+    }
+    .footer-strip p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="nav-menu-btn" onclick="toggleMenu()">MENU</button>
+  <div class="nav-arrows">
+    <a href="#top" class="arrow-up" aria-label="Scroll up">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <a href="#footer" class="arrow-down" aria-label="Scroll down">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true">
+    <button class="overlay-close" onclick="toggleMenu()">Close</button>
+    <div class="overlay-inner">
+      <nav>
+        <a href="../home/" onclick="toggleMenu()">Home</a>
+        <a href="../about/" onclick="toggleMenu()">About</a>
+        <a href="../services/" onclick="toggleMenu()">Services</a>
+        <a href="../project/" onclick="toggleMenu()">Work</a>
+        <a href="../contact/" onclick="toggleMenu()">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="page-section" id="top">
+    <div class="about-block">
+      <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=800&q=80" alt="Studio Interior" class="about-img">
+      <div class="about-text">
+        <h1>About the Studio</h1>
+        <div class="accent-line"></div>
+        <p>
+          Founded in Lisbon, Studio is an interior design practice working across Portugal and Europe. We believe that great design starts with listening — to how you live, how you move through space, and how you want to feel at home.
+        </p>
+        <p>
+          Every project is a collaboration. We bring rigour to the process and warmth to the outcome, balancing aesthetic precision with the lived-in reality of everyday life.
+        </p>
+        <p>
+          Our work spans private residences, boutique hospitality projects, and carefully considered commercial spaces.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-strip" id="footer">
+    <p>Studio — Lisbon & Porto — atelier@studio.pt — +351 218 080 529</p>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const overlay = document.getElementById('menuOverlay');
+      overlay.classList.toggle('is-open');
+      document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
+    }
+  </script>
+
+</body>
+</html>

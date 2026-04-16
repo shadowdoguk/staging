@@ -1,0 +1,89 @@
+/* ============================================
+   PROJECT-SLIDER — Webflow-style carousel
+   Reference: cabanana.pt slider (w-slider)
+   prev/next arrows + scroll-snap slides
+   ============================================ */
+
+.project-slider {
+  position: relative;
+  width: 1152px;
+  height: 630px;
+  overflow: hidden;
+}
+
+.project-slider .slider-mask {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  height: 100%;
+  gap: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.project-slider .slider-mask::-webkit-scrollbar {
+  display: none;
+}
+
+.project-slider .slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Slider arrows ─────────────────────── */
+.project-slider .slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #333333;
+}
+
+.project-slider:hover .slider-arrow {
+  opacity: 1;
+}
+
+.project-slider .slider-arrow:hover {
+  background: #FFFFFF;
+}
+
+.project-slider .slider-arrow-prev {
+  left: 20px;
+}
+
+.project-slider .slider-arrow-next {
+  right: 20px;
+}
+
+.project-slider .slider-arrow:disabled {
+  opacity: 0.2 !important;
+  cursor: default;
+}
+
+.project-slider .slider-arrow svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}

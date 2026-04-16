@@ -1,0 +1,15 @@
+/* Google Fonts: Kiona + Montserrat — from live forensic analysis */
+@import url('https://fonts.googleapis.com/css2?family=Kiona&family=Montserrat:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: #F4F4F4; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #333333;
+  background: #F4F4F4;
+  -webkit-font-smoothing: antialiased;
+}

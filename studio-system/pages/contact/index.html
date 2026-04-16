@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kiona&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../../components/nav-sidebar/nav-sidebar.css">
+  <link rel="stylesheet" href="../../components/content-block/content-block.css">
+  <link rel="stylesheet" href="../../components/menu-overlay/menu-overlay.css">
+  <style>
+    /* ── Contact page layout ─────────────── */
+    .contact-section {
+      height: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F4F4F4;
+    }
+
+    .contact-block {
+      background: #FFFFFF;
+      width: 1152px;
+      height: 630px;
+      box-shadow: rgba(51, 51, 51, 0.1) 0px 10px 10px -8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    /* ── Left column — branding ─────────── */
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 80px;
+      gap: 40px;
+    }
+
+    .contact-logo {
+      width: 160px;
+      height: auto;
+      display: block;
+    }
+
+    /* Geometric "A" logo — SVG inline */
+    .contact-logo-svg {
+      width: 120px;
+      height: 120px;
+      display: block;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-info .contact-address,
+    .contact-info .contact-email,
+    .contact-info .contact-phones {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #333333;
+    }
+
+    .contact-info a {
+      color: #333333;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Social icons ─────────────────────── */
+    .contact-social {
+      display: flex;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .contact-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      color: #333333;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-social a:hover {
+      opacity: 1;
+    }
+
+    .contact-social svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ── Right column — form ─────────────── */
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      color: #888888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: #333333;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #CCCCCC;
+      padding: 8px 0;
+      outline: none;
+      transition: border-color 0.2s ease;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10L6 8z' fill='%23333'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 4px center;
+      padding-right: 20px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-bottom-color: #333333;
+      border-bottom-width: 2px;
+    }
+
+    .form-group textarea {
+      resize: none;
+      min-height: 80px;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #AAAAAA;
+    }
+
+    /* ── Submit button ────────────────────── */
+    .btn-submit {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #333333;
+      background: transparent;
+      border: 1px solid #333333;
+      border-radius: 999px;
+      padding: 14px 48px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: #333333;
+      color: #FFFFFF;
+    }
+
+    /* ── Footer ───────────────────────────── */
+    .footer-strip {
+      height: 60px;
+      background: #F4F4F4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid #E0E0E0;
+    }
+
+    .footer-strip p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU button -->
+  <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Open menu">MENU</button>
+
+  <!-- Nav arrows -->
+  <div class="nav-arrows">
+    <a href="#hero" class="arrow-up" aria-label="Scroll up">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <a href="#footer" class="arrow-down" aria-label="Scroll down">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 3L9 15M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Menu overlay -->
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true">
+    <button class="overlay-close" onclick="toggleMenu()">Close</button>
+    <div class="overlay-inner">
+      <nav>
+        <a href="../home/" onclick="toggleMenu()">Home</a>
+        <a href="../about/" onclick="toggleMenu()">About</a>
+        <a href="../services/" onclick="toggleMenu()">Services</a>
+        <a href="../project/" onclick="toggleMenu()">Work</a>
+        <a href="../contact/" onclick="toggleMenu()">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ══ CONTACT ════════════════════════════════ -->
+  <section class="contact-section" id="hero">
+    <div class="contact-block">
+
+      <!-- LEFT: Logo + info + social -->
+      <div class="contact-left">
+        <!-- Geometric "A" logo -->
+        <svg class="contact-logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Studio Logo">
+          <g fill="none" stroke="#333333" stroke-width="2">
+            <!-- Outer triangle -->
+            <path d="M60 15 L100 95 L20 95 Z"/>
+            <!-- Inner triangle -->
+            <path d="M60 35 L85 85 L35 85 Z"/>
+            <!-- Crossbar -->
+            <line x1="40" y1="68" x2="80" y2="68"/>
+          </g>
+        </svg>
+
+        <div class="contact-info">
+          <p class="contact-address">
+            Rua Pedrouços nº27 — atelier10<br>
+            1400-285 Lisboa
+          </p>
+          <a href="mailto:atelier@studio.pt" class="contact-email">atelier@studio.pt</a>
+          <p class="contact-phones">
+            <a href="tel:+351218080529">+351 218 080 529</a> /
+            <a href="tel:+351916411167">+351 916 411 167</a>
+          </p>
+        </div>
+
+        <!-- Social icons — monochrome SVG -->
+        <div class="contact-social">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/351916411167" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <!-- Email -->
+          <a href="mailto:atelier@studio.pt" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 7l10 7 10-7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-right">
+        <form class="contact-form" action="#" method="POST">
+
+          <!-- Dropdown — full width -->
+          <div class="form-group" style="width:100%;">
+            <label for="request-type">Request</label>
+            <select id="request-type" name="request-type">
+              <option value="quote">Request a Quote</option>
+              <option value="info">General Information</option>
+              <option value="collaboration">Collaboration</option>
+              <option value="press">Press Enquiry</option>
+            </select>
+          </div>
+
+          <!-- Name + Email row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Name *</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email *</label>
+              <input type="email" id="contact-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+
+          <!-- Telephone — full width -->
+          <div class="form-group">
+            <label for="contact-phone">Telephone</label>
+            <input type="tel" id="contact-phone" name="phone" placeholder="+351 ...">
+          </div>
+
+          <!-- Message — full width -->
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Tell us about your project..." rows="4"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit">To send</button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer strip -->
+  <div class="footer-strip" id="footer">
+    <p>Studio — Lisbon & Porto — atelier@studio.pt — +351 218 080 529</p>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const overlay = document.getElementById('menuOverlay');
+      overlay.classList.toggle('is-open');
+      document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
+    }
+  </script>
+
+</body>
+</html>

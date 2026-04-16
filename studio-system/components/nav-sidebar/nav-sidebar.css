@@ -1,0 +1,96 @@
+/* ============================================
+   NAV-SIDEBAR — Fixed right-side navigation
+   MENU text (vertical) + up/down scroll arrows
+   Reference: cabanana.pt live CSS
+   ============================================ */
+
+/* ── MENU text ─────────────────────────── */
+.nav-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 144px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.nav-menu-btn {
+  position: fixed;
+  top: 435px;
+  left: 37px;
+  font-family: 'Kiona', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #333333;
+  cursor: pointer;
+  pointer-events: all;
+  writing-mode: horizontal-tb;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  /* Rotate to read vertically — mimics reference transform */
+  transform: rotate(-90deg) translateX(-50%);
+  transform-origin: left top;
+  letter-spacing: 0.05em;
+}
+
+.nav-menu-btn:hover {
+  opacity: 0.6;
+}
+
+/* ── Scroll arrows ─────────────────────── */
+.nav-arrows {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 144px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.nav-arrows a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #333333;
+  text-decoration: none;
+  pointer-events: all;
+  transition: opacity 0.2s ease;
+  opacity: 0.3;
+}
+
+.nav-arrows a:hover {
+  opacity: 1;
+}
+
+.nav-arrows .arrow-up {
+  margin-bottom: 100px;
+}
+
+.nav-arrows .arrow-down {
+  transform: rotate(90deg);
+}
+
+.nav-arrows .arrow-down:hover {
+  transform: rotate(90deg);
+}
+
+/* Arrow SVG icons */
+.nav-arrows a svg {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}

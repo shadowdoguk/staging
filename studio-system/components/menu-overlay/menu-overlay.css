@@ -1,0 +1,65 @@
+/* ============================================
+   MENU-OVERLAY — Full-screen nav overlay
+   Reference: cabanana.pt menu popup
+   Semi-transparent dark overlay with nav links
+   ============================================ */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(51, 51, 51, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-overlay .overlay-inner {
+  text-align: center;
+}
+
+.menu-overlay nav a {
+  display: block;
+  font-family: 'Kiona', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 16px 0;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+
+.menu-overlay nav a:hover {
+  opacity: 0.6;
+}
+
+.menu-overlay .overlay-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.menu-overlay .overlay-close:hover {
+  opacity: 1;
+}
